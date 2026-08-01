@@ -13,26 +13,37 @@ concentrate? Are riskier loans priced correctly? Is the portfolio profitable
 overall? The results are visualized in a 3-page Power BI dashboard and written
 up in a full report.
 
+## Dashboard Preview
+
+**Summary**
+![Summary page](dashboard/summary.png)
+
+**Overview**
+![Overview page](dashboard/overview.png)
+
+**Risk & Profitability**
+![Risk & Profitability page](dashboard/risk.png)
+
 ## Contents
 
-| File(s) | Contents |
+| Folder | Contents |
 |---|---|
-| `dataset_financial_loan.xlsx`, `cleaned_loan_data.csv` | Raw source file and the cleaned output |
-| `1_database_setup.sql` → `8_repayment_and_profitability.sql` | 8 numbered SQL scripts, from setup through profitability analysis |
-| `BANK_LOAN.pbix` | Interactive Power BI dashboard |
-| `Bank_Loan_Analysis_Report.docx` | Full written analysis |
+| `data/` | Raw source file (`dataset_financial_loan.xlsx`) and the cleaned output (`cleaned_loan_data.csv`) |
+| `sql/` | 8 numbered SQL scripts, from setup through profitability analysis |
+| `dashboard/` | `BANK_LOAN.pbix` — interactive Power BI dashboard, plus page screenshots |
+| `report/` | Full written analysis (`Bank_Loan_Analysis_Report.docx`) |
 
 ## SQL Scripts
 
-1. `1_database_setup.sql` — creates the schema and loads the raw CSV
-2. `2_data_cleaning.sql` — fixes date formats, handles missing values, derives
+1. `sql/1_database_setup.sql` — creates the schema and loads the raw CSV
+2. `sql/2_data_cleaning.sql` — fixes date formats, handles missing values, derives
    `loan_type`, `emp_years`, and `issue_month`
-3. `3_kpi_analysis.sql` — portfolio-level KPIs
-4. `4_loan_status_breakdown.sql` — applications by state, grade, purpose, and more
-5. `5_risk_and_default_analysis.sql` — default rate by state, term, grade, and DTI
-6. `6_borrower_profile_analysis.sql` — DTI, employer, income, and verification patterns
-7. `7_grade_and_pricing_analysis.sql` — loan amount and interest rate by grade
-8. `8_repayment_and_profitability.sql` — profit/loss and overall portfolio return
+3. `sql/3_kpi_analysis.sql` — portfolio-level KPIs
+4. `sql/4_loan_status_breakdown.sql` — applications by state, grade, purpose, and more
+5. `sql/5_risk_and_default_analysis.sql` — default rate by state, term, grade, and DTI
+6. `sql/6_borrower_profile_analysis.sql` — DTI, employer, income, and verification patterns
+7. `sql/7_grade_and_pricing_analysis.sql` — loan amount and interest rate by grade
+8. `sql/8_repayment_and_profitability.sql` — profit/loss and overall portfolio return
 
 ## Data Notes
 
@@ -59,11 +70,11 @@ up in a full report.
 ## How to Run
 
 1. Clone the repo
-2. Point `1_database_setup.sql` at your local copy of the CSV (update the
+2. Point `sql/1_database_setup.sql` at your local copy of the CSV (update the
    `LOAD DATA INFILE` path)
 3. Run the SQL scripts 1 through 8, in order, in MySQL Workbench
-4. Open `BANK_LOAN.pbix` in Power BI Desktop for the dashboard
-5. Read `Bank_Loan_Analysis_Report.docx` for the full write-up
+4. Open `dashboard/BANK_LOAN.pbix` in Power BI Desktop for the dashboard
+5. Read `report/Bank_Loan_Analysis_Report.docx` for the full write-up
 
 ## Tools Used
 MySQL / MySQL Workbench, Power BI Desktop, Microsoft Word
