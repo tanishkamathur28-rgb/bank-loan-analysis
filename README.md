@@ -4,7 +4,7 @@ A SQL and Power BI project analyzing 38,576 bank loan records — covering data
 cleaning, portfolio KPIs, risk segmentation, borrower profiling, and
 profitability.
 
-## What this project does
+## Overview
 
 Starting from a raw CSV export, this project cleans the data in MySQL, then runs
 it through a series of analytical queries to answer questions a bank's risk team
@@ -13,16 +13,16 @@ concentrate? Are riskier loans priced correctly? Is the portfolio profitable
 overall? The results are visualized in a 3-page Power BI dashboard and written
 up in a full report.
 
-## Repo contents
+## Contents
 
-| Folder | Contents |
+| File(s) | Contents |
 |---|---|
-| `data/` | Raw source file (`dataset_financial_loan.xlsx`) and the cleaned output (`cleaned_loan_data.csv`) |
-| `sql/` | 8 numbered SQL scripts, from setup through profitability analysis |
-| `dashboard/` | `BANK_LOAN.pbix` — interactive Power BI dashboard |
-| `report/` | Full written analysis (`Bank_Loan_Analysis_Report.docx`) |
+| `dataset_financial_loan.xlsx`, `cleaned_loan_data.csv` | Raw source file and the cleaned output |
+| `1_database_setup.sql` → `8_repayment_and_profitability.sql` | 8 numbered SQL scripts, from setup through profitability analysis |
+| `BANK_LOAN.pbix` | Interactive Power BI dashboard |
+| `Bank_Loan_Analysis_Report.docx` | Full written analysis |
 
-## The SQL scripts
+## SQL Scripts
 
 1. `1_database_setup.sql` — creates the schema and loads the raw CSV
 2. `2_data_cleaning.sql` — fixes date formats, handles missing values, derives
@@ -34,7 +34,7 @@ up in a full report.
 7. `7_grade_and_pricing_analysis.sql` — loan amount and interest rate by grade
 8. `8_repayment_and_profitability.sql` — profit/loss and overall portfolio return
 
-## A few things worth knowing before you dig in
+## Data Notes
 
 - `emp_length` (e.g. "10+ years") was converted to a numeric `emp_years` column —
   the raw text sorts alphabetically, which isn't useful for tenure analysis.
@@ -43,7 +43,7 @@ up in a full report.
 - `loan_type` (Good/Bad/Current) is derived from `loan_status` and used
   throughout the risk and profitability queries.
 
-## Numbers that stood out
+## Key Findings
 
 - Default rate rises steadily with credit grade: **5.70%** at Grade A up to
   **31.31%** at Grade G — the grading system does what it's supposed to.
@@ -56,7 +56,7 @@ up in a full report.
 - California accounts for 6,894 applications and $78.48M funded — more than the
   next two states combined.
 
-## Running it yourself
+## How to Run
 
 1. Clone the repo
 2. Point `1_database_setup.sql` at your local copy of the CSV (update the
@@ -65,7 +65,7 @@ up in a full report.
 4. Open `BANK_LOAN.pbix` in Power BI Desktop for the dashboard
 5. Read `Bank_Loan_Analysis_Report.docx` for the full write-up
 
-## Built with
+## Tools Used
 MySQL / MySQL Workbench, Power BI Desktop, Microsoft Word
 
 ## Author
